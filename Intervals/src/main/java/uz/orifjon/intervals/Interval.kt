@@ -33,3 +33,9 @@ fun Interval.plus(interval: Interval): Interval =
         if (this.first() > interval.first()) this.first() else interval.first(),
         if (this.last() > interval.last()) this.last() else interval.last()
     )
+
+fun Interval.minus(interval: Interval): Interval =
+    Interval(
+        if (this.first() > interval.first()) this.first() - interval.first() else interval.first() - this.first(),
+        if (this.last() > interval.last()) this.last() - interval.last() else interval.last() - this.last()
+    )
