@@ -16,6 +16,6 @@ allprojects {
  > Step 2. Add the dependency
   ```gradle
 	dependencies {
-	        implementation 'com.github.OrifjonOlimjonov:IntervalTypeLibrary:1.0.0'
+	        implementation 'com.github.OrifjonOlimjonov:IntervalTypeLibrary:0.0.1-alpha'
 	}
    ```   
