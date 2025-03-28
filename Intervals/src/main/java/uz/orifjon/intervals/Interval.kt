@@ -30,12 +30,32 @@ class Interval(a: Long, b: Long) {
 
 fun Interval.plus(interval: Interval): Interval =
     Interval(
-        if (this.first() > interval.first()) this.first() else interval.first(),
-        if (this.last() > interval.last()) this.last() else interval.last()
+        this.first() + interval.first(),
+        this.last() + interval.last()
     )
 
 fun Interval.minus(interval: Interval): Interval =
     Interval(
-        if (this.first() > interval.first()) this.first() - interval.first() else interval.first() - this.first(),
-        if (this.last() > interval.last()) this.last() - interval.last() else interval.last() - this.last()
+        this.first() - interval.last(),
+        this.last() - interval.first()
     )
+
+fun Interval.multiply(interval: Interval): Interval = Interval(
+    min(
+        this.first() * interval.first(),
+        this.first() * interval.last(),
+        this.last() * interval.first(),
+        this.last() * interval.last()
+    ),
+    max(
+        this.first() * interval.first(),
+        this.first() * interval.last(),
+        this.last() * interval.first(),
+        this.last() * interval.last()
+    )
+)
+
+
+fun min(vararg args: Long) = args.toList().min()
+fun max(vararg args: Long) = args.toList().max()
+
